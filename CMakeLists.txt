@@ -6,3 +6,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(AoC1 01.cpp)
 add_executable(AoC2 02.cpp)
+add_executable(AoC3 03.cpp)
