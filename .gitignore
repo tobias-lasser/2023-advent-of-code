@@ -12,3 +12,4 @@ _deps
 /.idea/
 /cmake-build-debug-clang17/
 /cmake-build-release-clang17/
+/inputs/
