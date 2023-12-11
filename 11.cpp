@@ -25,22 +25,24 @@ auto parseInput(std::string_view filename) {
 void expandUniverse(std::vector<std::string>& universe) {
     if (universe.empty()) return;
 
+    // mark columns for expansion
     for (std::size_t i{0}; i < universe.front().size(); ++i) {
         bool containsGalaxy{false};
         for (auto &row: universe)
             if (row[i] == '#') containsGalaxy = true;
-        if (containsGalaxy) continue;
-        // mark column for expansion
-        for (auto &row: universe)
-            row[i] = 'e';
+        if (!containsGalaxy) {
+            for (auto &row: universe)
+                row[i] = 'e';
+        }
     }
 
+    // mark rows for expansion
     for (std::size_t j{0}; j < universe.size(); ++j) {
         bool containsGalaxy{universe[j].contains('#')};
-        if (containsGalaxy) continue;
-        // mark row for expansion
-        for (auto& c : universe[j])
-            c = 'e';
+        if (!containsGalaxy) {
+            for (auto &c: universe[j])
+                c = 'e';
+        }
     }
 }
 
