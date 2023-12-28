@@ -4,6 +4,20 @@ project(2023_advent_of_code LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(FetchContent)
+FetchContent_Declare(
+        Eigen
+        GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+        GIT_TAG master
+        GIT_SHALLOW TRUE
+        GIT_PROGRESS TRUE)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
+set(EIGEN_BUILD_DOC OFF)
+set(EIGEN_BUILD_PKGCONFIG OFF)
+FetchContent_MakeAvailable(Eigen)
+
+
+
 add_executable(AoC1 01.cpp)
 add_executable(AoC2 02.cpp)
 add_executable(AoC3 03.cpp)
@@ -27,3 +41,5 @@ add_executable(AoC20 20.cpp)
 add_executable(AoC21 21.cpp)
 add_executable(AoC22 22.cpp)
 add_executable(AoC23 23.cpp)
+add_executable(AoC24 24.cpp)
+target_link_libraries(AoC24 PRIVATE Eigen3::Eigen)
